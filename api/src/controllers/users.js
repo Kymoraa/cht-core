@@ -1,7 +1,7 @@
 const _ = require('underscore'),
   auth = require('../auth'),
   authorization = require('../services/authorization'),
-  db = require('../db-pouch')
+  db = require('../db-pouch'),
   logger = require('../logger'),
   serverUtils = require('../server-utils'),
   usersService = require('../services/users');
@@ -12,7 +12,7 @@ const hasFullPermission = req => {
     .then(() => true)
     .catch(err => {
       if (err.code === 403) {
-        return false;
+        return false
       }
       throw err;
     });

@@ -41,7 +41,7 @@
     return {
       name: dbName,
       remote: url.slice(0, dbNameLocation)
-    };
+   };
   };
 
   var getLocalDbName = function(dbInfo, username) {
@@ -59,7 +59,7 @@
     let change = 0;
 
     // TODO: pull info() from local in case of restarted initial replications
-    PouchDB.fetch(`/api/v1/users/${userCtx.name}/info`, {credentials: 'same-origin'})
+    window.PouchDB.fetch(`/api/v1/users/${userCtx.name}/info`, {credentials: 'same-origin'})
       .then(res => res.json())
       .then(data => {
         maximumDocuments = data.records;
@@ -91,7 +91,7 @@
 
           const idx = change++ % MAX_SAMPLES;
           dates[idx] = Date.now();
-          counts[idx] = docsRead
+          counts[idx] = docsRead;
 
           let percentLeft;
           let minutes;

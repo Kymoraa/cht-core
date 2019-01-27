@@ -12,7 +12,7 @@ const hasFullPermission = req => {
     .then(() => true)
     .catch(err => {
       if (err.code === 403) {
-        return false
+        return false;
       }
       throw err;
     });
